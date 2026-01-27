@@ -27,7 +27,7 @@ source ~/.zshrc
 
 # === Build and install Neovim
 apk add gettext-dev
-git clone https://github.com/neovim/neovim.git /tmp/neovim
+git clone --depth 1 https://github.com/neovim/neovim.git /tmp/neovim
 cd /tmp/neovim && make && make install
 cd $HOME
 
