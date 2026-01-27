@@ -2,7 +2,7 @@
 apk add git curl make cmake
 apk add htop btop bat exa procs ripgrep fzf
 apk add bash zsh vim tmux fastfetch
-apk add fontconfig
+apk add fontconfig readline-dev
 
 # === Networking Tools ===
 apk add busybox-extras ngrep netcat-openbsd socat
@@ -22,6 +22,16 @@ tar -C /usr/local -xzf go1.25.3.linux-amd64.tar.gz
 echo 'export PATH=$PATH:/usr/local/go/bin' >>~/.zshrc
 rm go1.25.3.linux-amd64.tar.gz
 source ~/.zshrc
+
+curl -L -R -O https://www.lua.org/ftp/lua-5.1.5.tar.gz
+tar zxf lua-5.1.5.tar.gz
+cd lua-5.1.5 && make linux && make install
+cd $HOME
+
+wget https://luarocks.github.io/luarocks/releases/luarocks-3.13.0.tar.gz
+tar xzf luarocks-3.13.0.tar.gz
+cd luarocks-3.13.0 && ./configure && make && make install
+cd $HOME
 
 # apk add kubectl docker # (Optional)
 
