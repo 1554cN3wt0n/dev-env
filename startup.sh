@@ -33,7 +33,7 @@ cd $HOME
 
 # === Clone LazyVim starter config ===
 mkdir -p $HOME/.config/nvim
-git clone https://github.com/LazyVim/starter.git $HOME/.config/nvim
+git clone --depth 1 https://github.com/LazyVim/starter.git $HOME/.config/nvim
 
 # === Install Python requirements ===
 pip3 install -r requirements.txt  --break-system-packages
