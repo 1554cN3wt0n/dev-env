@@ -18,8 +18,8 @@ apk add python3 py3-pip python3-dev
 curl -fsSL https://bun.sh/install | bash
 
 wget https://go.dev/dl/go1.25.3.linux-amd64.tar.gz
-tar -C /usr/local -xzf go1.25.3.linux-amd64.tar.gz 
-echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.zshrc
+tar -C /usr/local -xzf go1.25.3.linux-amd64.tar.gz
+echo 'export PATH=$PATH:/usr/local/go/bin' >>~/.zshrc
 rm go1.25.3.linux-amd64.tar.gz
 source ~/.zshrc
 
@@ -36,7 +36,7 @@ mkdir -p $HOME/.config/nvim
 git clone --depth 1 https://github.com/LazyVim/starter.git $HOME/.config/nvim
 
 # === Install Python requirements ===
-pip3 install -r requirements.txt  --break-system-packages
+pip3 install -r requirements.txt --break-system-packages
 
 # === Install Bun packages ===
 bun install -g prettier
