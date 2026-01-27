@@ -1,3 +1,10 @@
+# Docker
+
+
+```sh
+docker run -it --name archlinux-dev-env -p 3000:3000 -p 5000:5000 -p 8888:8888 -v /var/run/docker.sock:/var/run/docker.sock --cap-add NET_ADMIN archlinux
+```
+
 # Extras
 
 - [vim-plug](https://github.com/junegunn/vim-plug)
