@@ -4,7 +4,7 @@ apt update
 # === Essential CLI Tools ===
 apt install -y \
        git curl wget zsh unzip make cmake vim tree \
-       tmux htop btop jq bat ripgrep fzf neofetch
+       tmux htop btop jq bat ripgrep fzf fastfetch
 
 # === Networking Tools ===
 apt install -y \
