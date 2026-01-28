@@ -1,6 +1,7 @@
 # === Essential CLI Tools ===
 apk add git curl make cmake
 apk add htop btop bat exa procs ripgrep fzf
+apk add fd unzip gzip lazygit
 apk add bash zsh vim tmux fastfetch
 apk add fontconfig readline-dev
 
