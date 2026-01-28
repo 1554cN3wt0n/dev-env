@@ -22,9 +22,9 @@ curl -fsSL https://bun.sh/install | bash
 
 wget https://go.dev/dl/go1.25.3.linux-amd64.tar.gz
 tar -C /usr/local -xzf go1.25.3.linux-amd64.tar.gz 
-echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc
+echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.zshrc
 rm go1.25.3.linux-amd64.tar.gz
-source ~/.bashrc
+source ~/.zshrc
 
 # === Install Neovim 0.11.3 (from GitHub release) ===
 wget https://github.com/neovim/neovim/releases/download/v0.11.3/nvim-linux-x86_64.tar.gz
