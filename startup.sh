@@ -1,56 +1,42 @@
+# Update package lists
+apt update
+
 # === Essential CLI Tools ===
-apk add git curl make cmake
-apk add htop btop bat exa procs ripgrep fzf
-apk add fd unzip gzip lazygit
-apk add bash zsh vim tmux fastfetch
-apk add fontconfig readline-dev
+apt install -y \
+       git curl wget zsh unzip make cmake vim tree \
+       tmux htop btop jq bat ripgrep fzf neofetch
 
 # === Networking Tools ===
-apk add busybox-extras ngrep netcat-openbsd socat
+apt install -y \
+       ngrep netcat-openbsd socat telnet tcpdump traceroute dnsutils
 
 # === Install Oh My Zsh ===
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # === Programming Tools (Assembly, C/C++, Debuggers) ===
-apk add gcc clang clang-dev nasm gdb
-apk add musl-dev linux-headers
-apk add python3 py3-pip python3-dev
+apt install -y \
+       nasm gcc gdb clang-format clangd \
+       python3 python3-pip python3-venv \
 
 curl -fsSL https://bun.sh/install | bash
 
 wget https://go.dev/dl/go1.25.3.linux-amd64.tar.gz
-tar -C /usr/local -xzf go1.25.3.linux-amd64.tar.gz
-echo 'export PATH=$PATH:/usr/local/go/bin' >>~/.zshrc
+tar -C /usr/local -xzf go1.25.3.linux-amd64.tar.gz 
+echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc
 rm go1.25.3.linux-amd64.tar.gz
-source ~/.zshrc
+source ~/.bashrc
 
-curl -L -R -O https://www.lua.org/ftp/lua-5.1.5.tar.gz
-tar zxf lua-5.1.5.tar.gz
-cd lua-5.1.5 && make linux && make install
-cd $HOME
-
-wget https://luarocks.github.io/luarocks/releases/luarocks-3.13.0.tar.gz
-tar xzf luarocks-3.13.0.tar.gz
-cd luarocks-3.13.0 && ./configure && make && make install
-cd $HOME
-
-# apk add kubectl docker # (Optional)
-
-# === Build and install Neovim
-apk add gettext-dev
-git clone --depth 1 https://github.com/neovim/neovim.git /tmp/neovim
-cd /tmp/neovim && make && make install
-cd $HOME
+# === Install Neovim 0.11.3 (from GitHub release) ===
+wget https://github.com/neovim/neovim/releases/download/v0.11.3/nvim-linux-x86_64.tar.gz
+tar xzf nvim-linux-x86_64.tar.gz
+rm nvim-linux-x86_64.tar.gz
+mv nvim-linux-x86_64 nvim && mv nvim /opt/
+ln -sf /opt/nvim/bin/nvim /usr/local/bin/nvim
 
 # === Clone LazyVim starter config ===
 mkdir -p $HOME/.config/nvim
-git clone --depth 1 https://github.com/LazyVim/starter.git $HOME/.config/nvim
+git clone https://github.com/LazyVim/starter.git $HOME/.config/nvim
 
-# === Install Python requirements ===
-pip3 install -r requirements.txt --break-system-packages
-
-# === Install Bun packages ===
-bun install -g prettier
 
 # === DevOps tools ===
 curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash
