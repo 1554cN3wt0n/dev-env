@@ -1,0 +1,13 @@
+numpy
+pandas
+scikit-learn
+sympy
+matplotlib
+jupyterlab
+fastapi
+marimo
+langchain
+langgraph
+langchain-community
+langchain-openai
+tokenizers
