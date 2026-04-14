@@ -26,6 +26,8 @@ echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.zshrc
 rm go1.25.3.linux-amd64.tar.gz
 source ~/.zshrc
 
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
 # === Install Neovim 0.11.3 (from GitHub release) ===
 wget https://github.com/neovim/neovim/releases/download/v0.11.3/nvim-linux-x86_64.tar.gz
 tar xzf nvim-linux-x86_64.tar.gz
